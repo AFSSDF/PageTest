@@ -6,7 +6,7 @@ import java.util.List;
  * 
  * @author Li
  *
- * @param <E> Ò³
+ * @param <E> é¡µ
  */
 public class PageBean<E> {
 
@@ -14,25 +14,26 @@ public class PageBean<E> {
 		this.dataTotal = dataTotal;
 		this.pageCur = pageCur;
 		this.pageSize = pageSize;
-		//Èç¹ûµ±Ç°Ò³ÊıĞ¡ÓÚ1
+		//å¦‚æœå½“å‰é¡µæ•°å°äº1
 		if (this.pageCur < 1) {
 			this.pageCur = 1;
 		}
-		// ¼ÆËã³ö×ÜÒ³Êı
+		// è®¡ç®—å‡ºæ€»é¡µæ•°
 		pageTotal = dataTotal % pageSize == 0 ? (dataTotal / pageSize) : (dataTotal / pageSize) + 1;
-		// Èç¹ûµ±Ç°Ò³Êı³¬Á¿
+		// å¦‚æœå½“å‰é¡µæ•°è¶…é‡
 		if (this.pageCur > pageTotal) {
-			this.pageCur = pageTotal;
+			// è¶…è¿‡åé‡æ–°å®šå‘åˆ°ç¬¬ä¸€é¡µ
+			this.pageCur = 1;
 		}
 
 	}
 
-	private int pageCur; // µ±Ç°Ò³Âë
-	private int pageSize; // Ã¿Ò»Ò³ÏÔÊ¾µÄÊı¾İÌõÊı
-	private int dataTotal; // ×ÜÊı¾İÌõÊı
-	private int pageTotal; // ×ÜÒ³Êı
+	private int pageCur; // å½“å‰é¡µç 
+	private int pageSize; // æ¯ä¸€é¡µæ˜¾ç¤ºçš„æ•°æ®æ¡æ•°
+	private int dataTotal; // æ€»æ•°æ®æ¡æ•°
+	private int pageTotal; // æ€»é¡µæ•°
 
-	private List<E> list; // Ò»Ò³µÄÊı¾İ
+	private List<E> list; // ä¸€é¡µçš„æ•°æ®
 
 	public int getPageCur() {
 		return pageCur;
